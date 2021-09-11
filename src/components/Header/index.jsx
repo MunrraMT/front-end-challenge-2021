@@ -1,5 +1,6 @@
 import { Box, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+
 import ImageSmall from '../ImageSmall';
 import Title from '../Title';
 
