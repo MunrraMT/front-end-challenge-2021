@@ -15,7 +15,7 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <Box paddingX="1.5rem" paddingY="0.5rem" component="header">
+    <Box height="3rem" paddingX="1.5rem" paddingY="0.5rem" component="header">
       <Grid container alignItems="center" justifyContent="center">
         <ImageSmall src="./logo.svg" alt="Logo da Empresa" />
         <Title className={classes.title} text="Pharma Inc" />
