@@ -1,10 +1,10 @@
 import Header from './components/Header';
-import SearchInput from './components/SearchInput';
+import MainContent from './components/MainContent';
 
 const App = () => (
   <>
     <Header />
-    <SearchInput label="Searching" />
+    <MainContent />
   </>
 );
 
