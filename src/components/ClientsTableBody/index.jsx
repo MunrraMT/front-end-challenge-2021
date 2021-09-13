@@ -1,6 +1,14 @@
+import { useContext } from 'react';
 import { Button, TableBody, TableCell, TableRow } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { arrayOf, shape, string } from 'prop-types';
+
+import DataContext from '../../providers/DataContext';
+import {
+  birthIsValid,
+  genderIsValid,
+  idIsValid,
+  nameIsValid,
+} from './validator';
 
 const useStyles = makeStyles(() => ({
   backgroundColorBlue: {
@@ -16,16 +24,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const ClientsTableBody = ({ rows }) => {
+const ClientsTableBody = () => {
+  const { data } = useContext(DataContext);
+
   const classes = useStyles();
 
   return (
     <TableBody>
-      {rows.map(({ id, name, gender, birth }) => (
-        <TableRow hover key={id}>
-          <TableCell align="left">{name}</TableCell>
-          <TableCell align="center">{gender}</TableCell>
-          <TableCell align="center">{birth}</TableCell>
+      {data.map((client) => (
+        <TableRow hover key={idIsValid(client.id.value)}>
+          <TableCell align="left">
+            {nameIsValid(client.name.first, client.name.last)}
+          </TableCell>
+
+          <TableCell align="center">{genderIsValid(client.gender)}</TableCell>
+          <TableCell align="center">{birthIsValid(client.dob.date)}</TableCell>
+
           <TableCell align="center">
             <Button
               className={`${classes.backgroundColorBlue} ${classes.textColor} ${classes.backgroundColorBlueHover}`}
@@ -40,17 +54,6 @@ const ClientsTableBody = ({ rows }) => {
       ))}
     </TableBody>
   );
-};
-
-ClientsTableBody.propTypes = {
-  rows: arrayOf(
-    shape({
-      id: string,
-      name: string,
-      gender: string,
-      birth: string,
-    }),
-  ).isRequired,
 };
 
 export default ClientsTableBody;
