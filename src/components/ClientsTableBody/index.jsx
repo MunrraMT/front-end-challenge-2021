@@ -9,6 +9,7 @@ import {
   idIsValid,
   nameIsValid,
 } from './validator';
+import Loading from '../Loading';
 
 const useStyles = makeStyles(() => ({
   backgroundColorBlue: {
@@ -29,7 +30,7 @@ const ClientsTableBody = () => {
 
   const classes = useStyles();
 
-  return (
+  return data.length > 0 ? (
     <TableBody>
       {data.map((client) => (
         <TableRow hover key={idIsValid(client.id.value)}>
@@ -53,6 +54,8 @@ const ClientsTableBody = () => {
         </TableRow>
       ))}
     </TableBody>
+  ) : (
+    <Loading />
   );
 };
 
