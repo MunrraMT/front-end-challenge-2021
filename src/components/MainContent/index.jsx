@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import SearchInput from '../SearchInput';
 import TextBasic from '../TextBasic';
 import ClientsList from '../ClientsList';
+import LoadingMore from '../LoadingMore';
 
 const useStyles = makeStyles(() => ({
   background: {
@@ -61,6 +62,8 @@ const MainContent = () => {
             },
           ]}
         />
+
+        <LoadingMore />
       </Container>
     </Box>
   );
