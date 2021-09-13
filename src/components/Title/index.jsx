@@ -5,7 +5,7 @@ import { string } from 'prop-types';
 const useStyles = makeStyles(() => ({
   title: {
     display: 'inline-block',
-    fontFamily: 'Leckerli One',
+    fontFamily: '"Leckerli One", cursive',
   },
 }));
 
