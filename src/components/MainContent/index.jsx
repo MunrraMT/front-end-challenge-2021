@@ -47,6 +47,18 @@ const MainContent = () => {
               gender: 'Feminino',
               birth: '30/04/1994',
             },
+            {
+              id: '3',
+              name: 'Pérola',
+              gender: 'Feminino',
+              birth: '30/04/2018',
+            },
+            {
+              id: '4',
+              name: 'Charles',
+              gender: 'Masculino',
+              birth: '30/04/2019',
+            },
           ]}
         />
       </Container>
