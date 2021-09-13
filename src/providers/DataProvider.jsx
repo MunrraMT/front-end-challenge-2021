@@ -11,9 +11,19 @@ const DataProvider = ({ children }) => {
     'Ações',
   ]);
   const [data, setData] = useState([]);
+  const [textSearch, setTextSearch] = useState('');
 
   return (
-    <DataContext.Provider value={{ data, setData, titles, setTitles }}>
+    <DataContext.Provider
+      value={{
+        data,
+        setData,
+        titles,
+        setTitles,
+        textSearch,
+        setTextSearch,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );
