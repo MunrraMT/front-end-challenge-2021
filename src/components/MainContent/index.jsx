@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Box, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
@@ -7,6 +8,8 @@ import ClientsList from '../ClientsList';
 import LoadingMore from '../LoadingMore';
 import ClientDetails from '../ClientDetails';
 
+import DataContext from '../../providers/DataContext';
+
 const useStyles = makeStyles(() => ({
   background: {
     backgroundColor: '#eeeeee',
@@ -14,13 +17,15 @@ const useStyles = makeStyles(() => ({
 }));
 
 const MainContent = () => {
+  const { data } = useContext(DataContext);
+
   const classes = useStyles();
 
   return (
     <Box
       className={classes.background}
       component="main"
-      minHeight="calc(100vh - 8rem)"
+      minHeight="calc(100vh - 9rem)"
       paddingY="2rem"
       paddingX="1rem"
     >
@@ -34,40 +39,12 @@ const MainContent = () => {
 
         <SearchInput marginBottom={2} marginTop={2} label="Pesquisar" />
 
-        <ClientsList
-          columns={['Nome', 'Genero', 'Aniversário', 'Ações']}
-          rows={[
-            {
-              id: '1',
-              name: 'André',
-              gender: 'Masculino',
-              birth: '29/08/1990',
-            },
-            {
-              id: '2',
-              name: 'Camila Maria',
-              gender: 'Feminino',
-              birth: '30/04/1994',
-            },
-            {
-              id: '3',
-              name: 'Pérola',
-              gender: 'Feminino',
-              birth: '30/04/2018',
-            },
-            {
-              id: '4',
-              name: 'Charles',
-              gender: 'Masculino',
-              birth: '30/04/2019',
-            },
-          ]}
-        />
+        {data.length > 0 ? <ClientsList /> : <p>Loading...</p>}
 
         <LoadingMore />
       </Container>
 
-      <ClientDetails />
+      {false && <ClientDetails />}
     </Box>
   );
 };

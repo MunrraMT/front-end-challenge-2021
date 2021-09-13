@@ -1,6 +1,8 @@
 import { TableCell, TableHead, TableRow } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { arrayOf, string } from 'prop-types';
+import { useContext } from 'react';
+
+import DataContext from '../../providers/DataContext';
 
 const useStyles = makeStyles(() => ({
   backgroundColorBlue: {
@@ -14,13 +16,15 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const ClientsTableHead = ({ columns }) => {
+const ClientsTableHead = () => {
+  const { titles } = useContext(DataContext);
+
   const classes = useStyles();
 
   return (
     <TableHead>
       <TableRow className={classes.backgroundColorBlue}>
-        {columns.map((item) => (
+        {titles.map((item) => (
           <TableCell
             className={`${classes.textColor} ${classes.textUpperCase}`}
             align={item === 'Nome' ? 'left' : 'center'}
@@ -32,10 +36,6 @@ const ClientsTableHead = ({ columns }) => {
       </TableRow>
     </TableHead>
   );
-};
-
-ClientsTableHead.propTypes = {
-  columns: arrayOf(string).isRequired,
 };
 
 export default ClientsTableHead;
