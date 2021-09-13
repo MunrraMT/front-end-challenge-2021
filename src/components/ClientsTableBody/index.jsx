@@ -9,7 +9,6 @@ import {
   idIsValid,
   nameIsValid,
 } from './validator';
-import Loading from '../Loading';
 
 const useStyles = makeStyles(() => ({
   backgroundColorBlue: {
@@ -30,32 +29,34 @@ const ClientsTableBody = () => {
 
   const classes = useStyles();
 
-  return data.length > 0 ? (
-    <TableBody>
-      {data.map((client) => (
-        <TableRow hover key={idIsValid(client.id.value)}>
-          <TableCell align="left">
-            {nameIsValid(client.name.first, client.name.last)}
-          </TableCell>
+  return (
+    data.length > 0 && (
+      <TableBody>
+        {data.map((client) => (
+          <TableRow hover key={idIsValid(client.id.value)}>
+            <TableCell align="left">
+              {nameIsValid(client.name.first, client.name.last)}
+            </TableCell>
 
-          <TableCell align="center">{genderIsValid(client.gender)}</TableCell>
-          <TableCell align="center">{birthIsValid(client.dob.date)}</TableCell>
+            <TableCell align="center">{genderIsValid(client.gender)}</TableCell>
+            <TableCell align="center">
+              {birthIsValid(client.dob.date)}
+            </TableCell>
 
-          <TableCell align="center">
-            <Button
-              className={`${classes.backgroundColorBlue} ${classes.textColor} ${classes.backgroundColorBlueHover}`}
-              size="small"
-              variant="contained"
-              color="primary"
-            >
-              Visualizar
-            </Button>
-          </TableCell>
-        </TableRow>
-      ))}
-    </TableBody>
-  ) : (
-    <Loading />
+            <TableCell align="center">
+              <Button
+                className={`${classes.backgroundColorBlue} ${classes.textColor} ${classes.backgroundColorBlueHover}`}
+                size="small"
+                variant="contained"
+                color="primary"
+              >
+                Visualizar
+              </Button>
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    )
   );
 };
 

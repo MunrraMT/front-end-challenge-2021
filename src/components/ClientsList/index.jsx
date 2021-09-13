@@ -1,7 +1,11 @@
-import { Paper, Table, TableContainer } from '@material-ui/core';
+import { useContext } from 'react';
+import { Box, Paper, Table, TableContainer } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+
+import DataContext from '../../providers/DataContext';
 import ClientsTableBody from '../ClientsTableBody';
 import ClientsTableHead from '../ClientsTableHead';
+import Loading from '../Loading';
 
 const useStyles = makeStyles(() => ({
   relative: {
@@ -10,9 +14,11 @@ const useStyles = makeStyles(() => ({
 }));
 
 const ClientsList = () => {
+  const { data } = useContext(DataContext);
+
   const classes = useStyles();
 
-  return (
+  return data.length > 0 ? (
     <TableContainer component={Paper} className={classes.relative}>
       <Table
         className={classes.relative}
@@ -24,6 +30,10 @@ const ClientsList = () => {
         <ClientsTableBody />
       </Table>
     </TableContainer>
+  ) : (
+    <Box display="flex" justifyContent="center">
+      <Loading />
+    </Box>
   );
 };
 
