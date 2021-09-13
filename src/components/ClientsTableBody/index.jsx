@@ -4,10 +4,10 @@ import { makeStyles } from '@material-ui/styles';
 
 import DataContext from '../../providers/DataContext';
 import {
-  birthIsValid,
-  genderIsValid,
-  idIsValid,
-  nameIsValid,
+  isValidBirth,
+  isValidGender,
+  isValidId,
+  isValidName,
 } from './validator';
 
 const useStyles = makeStyles(() => ({
@@ -33,14 +33,14 @@ const ClientsTableBody = () => {
     data.length > 0 && (
       <TableBody>
         {data.map((client) => (
-          <TableRow hover key={idIsValid(client.id.value)}>
+          <TableRow hover key={isValidId(client.id.value)}>
             <TableCell align="left">
-              {nameIsValid(client.name.first, client.name.last)}
+              {isValidName(client.name.first, client.name.last)}
             </TableCell>
 
-            <TableCell align="center">{genderIsValid(client.gender)}</TableCell>
+            <TableCell align="center">{isValidGender(client.gender)}</TableCell>
             <TableCell align="center">
-              {birthIsValid(client.dob.date)}
+              {isValidBirth(client.dob.date)}
             </TableCell>
 
             <TableCell align="center">
