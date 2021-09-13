@@ -1,29 +1,57 @@
-import { Box } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 
 import SearchInput from '../SearchInput';
 import TextBasic from '../TextBasic';
+import ClientsList from '../ClientsList';
 
-const MainContent = () => (
-  <Box
-    component="main"
-    minHeight="calc(100vh - 8rem)"
-    display="flex"
-    flexDirection="column"
-    justifyContent="space-between"
-    paddingX="2rem"
-    paddingY="2rem"
-    maxWidth="60rem"
-    marginX="auto"
-  >
-    <TextBasic>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
-      deleniti minima esse repellendus eius ducimus similique! Alias, harum
-      consectetur nesciunt commodi deleniti, totam corrupti vitae blanditiis
-      molestias nobis, accusantium vero!
-    </TextBasic>
+const useStyles = makeStyles(() => ({
+  background: {
+    backgroundColor: '#eeeeee',
+  },
+}));
 
-    <SearchInput label="Pesquisar" />
-  </Box>
-);
+const MainContent = () => {
+  const classes = useStyles();
+
+  return (
+    <Box
+      className={classes.background}
+      component="main"
+      minHeight="calc(100vh - 8rem)"
+      paddingY="2rem"
+      paddingX="1rem"
+    >
+      <Container component="section" maxWidth="md">
+        <TextBasic>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
+          deleniti minima esse repellendus eius ducimus similique! Alias, harum
+          consectetur nesciunt commodi deleniti, totam corrupti vitae blanditiis
+          molestias nobis, accusantium vero!
+        </TextBasic>
+
+        <SearchInput marginBottom={2} marginTop={2} label="Pesquisar" />
+
+        <ClientsList
+          columns={['Nome', 'Genero', 'Aniversário', 'Ações']}
+          rows={[
+            {
+              id: '1',
+              name: 'André',
+              gender: 'Masculino',
+              birth: '29/08/1990',
+            },
+            {
+              id: '2',
+              name: 'Camila Maria',
+              gender: 'Feminino',
+              birth: '30/04/1994',
+            },
+          ]}
+        />
+      </Container>
+    </Box>
+  );
+};
 
 export default MainContent;
