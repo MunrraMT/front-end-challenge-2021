@@ -1,7 +1,7 @@
 import { Box, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
-import ImageSmall from '../ImageSmall';
+import ImageCircle from '../ImageCircle';
 import Title from '../Title';
 
 const useStyles = makeStyles(() => ({
@@ -17,9 +17,9 @@ const Header = () => {
   return (
     <Box height="3rem" paddingX="2rem" paddingY="1rem" component="header">
       <Grid container alignItems="center" justifyContent="center">
-        <ImageSmall src="./logo.svg" alt="Logo da Empresa" />
+        <ImageCircle src="./logo.svg" alt="Logo da Empresa" />
         <Title className={classes.title} text="Pharma Inc" />
-        <ImageSmall src="./perfil.webp" alt="Foto de perfil do usuário" />
+        <ImageCircle src="./perfil.webp" alt="Foto de perfil do usuário" />
       </Grid>
     </Box>
   );
