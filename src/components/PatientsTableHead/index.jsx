@@ -1,8 +1,5 @@
 import { TableCell, TableHead, TableRow } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { useContext } from 'react';
-
-import DataContext from '../../providers/DataContext';
 
 const useStyles = makeStyles(() => ({
   backgroundColorBlue: {
@@ -16,10 +13,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const ClientsTableHead = () => {
-  const { titles } = useContext(DataContext);
-
+const PatientsTableHead = () => {
   const classes = useStyles();
+
+  const titles = ['Nome', 'Gênero', 'Nascimento', 'Ações'];
 
   return (
     <TableHead>
@@ -38,4 +35,4 @@ const ClientsTableHead = () => {
   );
 };
 
-export default ClientsTableHead;
+export default PatientsTableHead;

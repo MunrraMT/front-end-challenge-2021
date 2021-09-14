@@ -1,11 +1,12 @@
 import { useContext } from 'react';
+
 import { Box, Paper, Table, TableContainer } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 import DataContext from '../../providers/DataContext';
-import ClientsTableBody from '../ClientsTableBody';
-import ClientsTableHead from '../ClientsTableHead';
 import Loading from '../Loading';
+import PatientsTableBody from '../PatientsTableBody';
+import PatientsTableHead from '../PatientsTableHead';
 
 const useStyles = makeStyles(() => ({
   relative: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const ClientsList = () => {
+const PatientsList = () => {
   const { data } = useContext(DataContext);
 
   const classes = useStyles();
@@ -25,9 +26,9 @@ const ClientsList = () => {
         size="small"
         aria-label="a dense table"
       >
-        <ClientsTableHead />
+        <PatientsTableHead />
 
-        <ClientsTableBody />
+        <PatientsTableBody />
       </Table>
     </TableContainer>
   ) : (
@@ -37,4 +38,4 @@ const ClientsList = () => {
   );
 };
 
-export default ClientsList;
+export default PatientsList;

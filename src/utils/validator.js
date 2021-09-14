@@ -1,5 +1,5 @@
-import formatData from '../components/ClientsTableBody/format-data';
-import formatGender from '../components/ClientsTableBody/format-gender';
+import formatData from '../components/PatientsTableBody/format-data';
+import formatGender from '../components/PatientsTableBody/format-gender';
 import randomNumber from './random-number';
 
 export const isValidImage = (src) => src || './No_image_available.svg';

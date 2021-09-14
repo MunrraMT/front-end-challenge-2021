@@ -2,8 +2,8 @@ import { useContext, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import DataContext from './providers/DataContext';
-import ClientDetails from './components/ClientDetails';
 import HomePage from './pages/HomePage';
+import PatientsDetails from './components/PatientDetails';
 
 const App = () => {
   const { setData } = useContext(DataContext);
@@ -27,7 +27,7 @@ const App = () => {
         <Switch>
           <Route
             path="/patient/:id-:page-:firstname-:lastname"
-            component={ClientDetails}
+            component={PatientsDetails}
           />
         </Switch>
 

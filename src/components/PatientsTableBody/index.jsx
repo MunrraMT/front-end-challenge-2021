@@ -4,7 +4,7 @@ import DataContext from '../../providers/DataContext';
 import filterList from './filter-list';
 import TableFormatter from './TableFormatter';
 
-const ClientsTableBody = () => {
+const PatientsTableBody = () => {
   const { data, textSearch } = useContext(DataContext);
 
   if (textSearch.length > 0)
@@ -13,4 +13,4 @@ const ClientsTableBody = () => {
   return data.length > 0 && <TableFormatter list={data} />;
 };
 
-export default ClientsTableBody;
+export default PatientsTableBody;

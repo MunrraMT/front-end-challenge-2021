@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/styles';
 import DataContext from '../../providers/DataContext';
 import SearchInput from '../SearchInput';
 import TextBasic from '../TextBasic';
-import ClientsList from '../ClientsList';
 import LoadingMore from '../LoadingMore';
 import Loading from '../Loading';
+import PatientsList from '../PatientsList';
 
 const useStyles = makeStyles(() => ({
   background: {
@@ -39,7 +39,7 @@ const MainContent = () => {
         <SearchInput marginBottom={2} marginTop={2} label="Pesquisar" />
 
         {data.length > 0 ? (
-          <ClientsList />
+          <PatientsList />
         ) : (
           <Box
             component="section"

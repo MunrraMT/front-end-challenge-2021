@@ -55,7 +55,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const ClientDetails = () => {
+const PatientsDetails = () => {
   const [data, setData] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -164,4 +164,4 @@ const ClientDetails = () => {
   );
 };
 
-export default ClientDetails;
+export default PatientsDetails;
