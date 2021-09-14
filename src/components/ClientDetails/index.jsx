@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import {
   Box,
   Button,
@@ -7,6 +8,7 @@ import {
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
+import DataContext from '../../providers/DataContext';
 import ImageCircle from '../ImageCircle';
 
 const useStyles = makeStyles(() => ({
@@ -42,7 +44,13 @@ const useStyles = makeStyles(() => ({
 }));
 
 const ClientDetails = () => {
+  const { setShowModal } = useContext(DataContext);
+
   const classes = useStyles();
+
+  const closeModal = () => {
+    setShowModal((prev) => !prev);
+  };
 
   return (
     <Box
@@ -53,7 +61,7 @@ const ClientDetails = () => {
       alignItems="center"
     >
       <Container className={classes.article} component="article">
-        <Button className={classes.btnClose} type="button">
+        <Button onClick={closeModal} className={classes.btnClose} type="button">
           <CloseIcon />
         </Button>
 

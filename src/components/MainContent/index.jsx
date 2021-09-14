@@ -5,7 +5,6 @@ import SearchInput from '../SearchInput';
 import TextBasic from '../TextBasic';
 import ClientsList from '../ClientsList';
 import LoadingMore from '../LoadingMore';
-import ClientDetails from '../ClientDetails';
 
 const useStyles = makeStyles(() => ({
   background: {
@@ -38,8 +37,6 @@ const MainContent = () => {
 
         <LoadingMore />
       </Container>
-
-      {false && <ClientDetails />}
     </Box>
   );
 };

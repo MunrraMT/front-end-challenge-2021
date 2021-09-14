@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 
+import { useContext } from 'react';
 import { Button, TableBody, TableCell, TableRow } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+
+import DataContext from '../../providers/DataContext';
 
 import {
   isValidBirth,
@@ -25,7 +28,13 @@ const useStyles = makeStyles(() => ({
 }));
 
 const TableFormatter = ({ list }) => {
+  const { setShowModal } = useContext(DataContext);
+
   const classes = useStyles();
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
 
   return (
     <TableBody>
@@ -44,6 +53,7 @@ const TableFormatter = ({ list }) => {
               size="small"
               variant="contained"
               color="primary"
+              onClick={openModal}
             >
               Visualizar
             </Button>

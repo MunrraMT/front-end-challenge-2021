@@ -1,22 +1,25 @@
 import { useContext, useEffect } from 'react';
 
+import DataContext from './providers/DataContext';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
-import DataContext from './providers/DataContext';
+import ClientDetails from './components/ClientDetails';
 
 const App = () => {
-  const context = useContext(DataContext);
+  const { page, setData, showModal } = useContext(DataContext);
 
   useEffect(() => {
-    fetch(`https://randomuser.me/api/?page=${context.page}&results=50`)
+    fetch(`https://randomuser.me/api/?page=${page}&results=50`)
       .then((response) => response.json())
-      .then(({ results }) => context.setData(results));
+      .then(({ results }) => setData(results));
   }, []);
 
   return (
     <>
       <Header />
       <MainContent />
+
+      {showModal && <ClientDetails />}
     </>
   );
 };

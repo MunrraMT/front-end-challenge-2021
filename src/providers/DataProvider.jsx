@@ -13,6 +13,7 @@ const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [textSearch, setTextSearch] = useState('');
   const [page, setPage] = useState(1);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <DataContext.Provider
@@ -25,6 +26,8 @@ const DataProvider = ({ children }) => {
         setTextSearch,
         page,
         setPage,
+        showModal,
+        setShowModal,
       }}
     >
       {children}
