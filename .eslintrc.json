@@ -1,12 +1,16 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest/globals": true
     },
     "extends": [
         "plugin:react/recommended",
         "airbnb",
-        "prettier"
+        "prettier",
+        "plugin:jest/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -17,9 +21,32 @@
     },
     "plugins": [
         "react",
-        "prettier"
+        "prettier",
+        "jest",
+        "jest-dom",
+        "testing-library"
     ],
     "rules": {
-        "react/react-in-jsx-scope": 0
-    }
+        "react/react-in-jsx-scope": 0,
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": [
+                "**/__tests__/**/*.[jt]s?(x)",
+                "**/?(*.)+(spec|test).[jt]s?(x)"
+            ],
+            "extends": [
+                "plugin:testing-library/react"
+            ]
+        }
+    ]
 }
