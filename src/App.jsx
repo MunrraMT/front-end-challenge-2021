@@ -6,10 +6,10 @@ import MainContent from './components/MainContent';
 import ClientDetails from './components/ClientDetails';
 
 const App = () => {
-  const { page, setData, showModal } = useContext(DataContext);
+  const { setData, showModal } = useContext(DataContext);
 
   useEffect(() => {
-    fetch(`https://randomuser.me/api/?page=${page}&results=50`)
+    fetch(`https://randomuser.me/api/?page=1&results=50`)
       .then((response) => response.json())
       .then(({ results }) => setData(results));
   }, []);
