@@ -10,15 +10,9 @@ const DataProvider = ({ children }) => {
     'Nascimento',
     'Ações',
   ]);
-  const [data, setData] = useState([
-    {
-      seed: '',
-      data: [],
-    },
-  ]);
+  const [data, setData] = useState([]);
   const [textSearch, setTextSearch] = useState('');
   const [page, setPage] = useState(0);
-  const [showModal, setShowModal] = useState(false);
   const [clientDetails, setClientDetails] = useState('');
 
   return (
@@ -32,8 +26,6 @@ const DataProvider = ({ children }) => {
         setTextSearch,
         page,
         setPage,
-        showModal,
-        setShowModal,
         clientDetails,
         setClientDetails,
       }}

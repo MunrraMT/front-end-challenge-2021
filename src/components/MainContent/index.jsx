@@ -1,10 +1,13 @@
+import { useContext } from 'react';
 import { Box, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
+import DataContext from '../../providers/DataContext';
 import SearchInput from '../SearchInput';
 import TextBasic from '../TextBasic';
 import ClientsList from '../ClientsList';
 import LoadingMore from '../LoadingMore';
+import Loading from '../Loading';
 
 const useStyles = makeStyles(() => ({
   background: {
@@ -13,6 +16,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const MainContent = () => {
+  const { data } = useContext(DataContext);
+
   const classes = useStyles();
 
   return (
@@ -33,7 +38,18 @@ const MainContent = () => {
 
         <SearchInput marginBottom={2} marginTop={2} label="Pesquisar" />
 
-        <ClientsList />
+        {data.length > 0 ? (
+          <ClientsList />
+        ) : (
+          <Box
+            component="section"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Loading />
+          </Box>
+        )}
 
         <LoadingMore />
       </Container>
