@@ -27,14 +27,13 @@ const useStyles = makeStyles(() => ({
 }));
 
 const TableFormatter = ({ list }) => {
-  const { setClientDetails } = useContext(DataContext);
+  const { page } = useContext(DataContext);
 
   const history = useHistory();
 
   const classes = useStyles();
 
-  const openModal = (data, seed, id) => {
-    setClientDetails({ data, seed });
+  const openModal = (id) => {
     history.push(`/patient/${id}`);
   };
 
@@ -42,7 +41,7 @@ const TableFormatter = ({ list }) => {
     <TableBody>
       {list.map(({ data, seed }) =>
         data.map((client) => {
-          const id = `${seed}-${client.name.first}`;
+          const id = `${seed}-${page}-${client.name.first}-${client.name.last}`;
 
           return (
             <TableRow hover key={id}>
@@ -63,7 +62,7 @@ const TableFormatter = ({ list }) => {
                   size="small"
                   variant="contained"
                   color="primary"
-                  onClick={() => openModal(client, seed, id)}
+                  onClick={() => openModal(id)}
                 >
                   Visualizar
                 </Button>

@@ -25,7 +25,10 @@ const App = () => {
     <>
       <BrowserRouter>
         <Switch>
-          <Route path="/patient/:id" component={ClientDetails} />
+          <Route
+            path="/patient/:id-:page-:firstname-:lastname"
+            component={ClientDetails}
+          />
         </Switch>
 
         <Route path="/" component={HomePage} />
