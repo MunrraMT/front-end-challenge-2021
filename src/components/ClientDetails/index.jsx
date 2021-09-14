@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+
 import {
   Box,
   Button,
@@ -15,7 +17,6 @@ import {
   isValidBirth,
   isValidEmail,
   isValidGender,
-  isValidId,
   isValidImage,
   isValidName,
   isValidNationality,
@@ -55,12 +56,15 @@ const useStyles = makeStyles(() => ({
 }));
 
 const ClientDetails = () => {
-  const { setShowModal, clientDetails } = useContext(DataContext);
+  const { clientDetails } = useContext(DataContext);
+
+  const history = useHistory();
+  const { id } = useParams();
 
   const classes = useStyles();
 
   const closeModal = () => {
-    setShowModal((prev) => !prev);
+    history.push('/');
   };
 
   return (
@@ -126,7 +130,7 @@ const ClientDetails = () => {
             clientDetails.data.location.country,
           )}
         </Typography>
-        <Typography>ID: {isValidId(clientDetails.data.id.value)}</Typography>
+        <Typography>ID: {id}</Typography>
 
         <Box
           component="footer"
@@ -136,8 +140,7 @@ const ClientDetails = () => {
           alignItems="center"
           marginTop="2rem"
         >
-          <p>Onde estou: {}</p>
-          <Typography>{`https://randomuser.me/api/?seed=${clientDetails.seed}`}</Typography>
+          <Typography>{`http://localhost:3000/patient/${id}`}</Typography>
         </Box>
       </Container>
     </Box>

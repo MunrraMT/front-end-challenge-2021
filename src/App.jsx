@@ -1,12 +1,12 @@
 import { useContext, useEffect } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import DataContext from './providers/DataContext';
-import Header from './components/Header';
-import MainContent from './components/MainContent';
 import ClientDetails from './components/ClientDetails';
+import HomePage from './pages/HomePage';
 
 const App = () => {
-  const { setData, showModal } = useContext(DataContext);
+  const { setData } = useContext(DataContext);
 
   useEffect(() => {
     fetch(`https://randomuser.me/api/?page=0&results=50`)
@@ -23,10 +23,13 @@ const App = () => {
 
   return (
     <>
-      <Header />
-      <MainContent />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/patient/:id" component={ClientDetails} />
+        </Switch>
 
-      {showModal && <ClientDetails />}
+        <Route path="/" component={HomePage} />
+      </BrowserRouter>
     </>
   );
 };
