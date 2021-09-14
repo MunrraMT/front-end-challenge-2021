@@ -1,10 +1,10 @@
-import randomNumber from './random-number';
 import formatData from '../components/ClientsTableBody/format-data';
 import formatGender from '../components/ClientsTableBody/format-gender';
-
-export const isValidId = (id) => id || randomNumber(99999, 10000);
+import randomNumber from './random-number';
 
 export const isValidImage = (src) => src || './No_image_available.svg';
+
+export const isValidId = (id) => id || randomNumber(99999, 10000);
 
 export const isValidName = (firstName, lastName) => {
   const first = firstName || 'Sem nome cadastrado';
@@ -35,3 +35,5 @@ export const isValidAddress = (city, state, country) => {
 
   return address || 'Sem endereço cadastrado';
 };
+
+export const isValidPhone = (phone) => phone || 'Sem telefone cadastrado';

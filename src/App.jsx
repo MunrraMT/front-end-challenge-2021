@@ -9,9 +9,16 @@ const App = () => {
   const { setData, showModal } = useContext(DataContext);
 
   useEffect(() => {
-    fetch(`https://randomuser.me/api/?page=1&results=50`)
+    fetch(`https://randomuser.me/api/?page=0&results=50`)
       .then((response) => response.json())
-      .then(({ results }) => setData(results));
+      .then((data) => {
+        setData([
+          {
+            seed: data.info.seed,
+            data: data.results,
+          },
+        ]);
+      });
   }, []);
 
   return (

@@ -5,11 +5,10 @@ import { Button, TableBody, TableCell, TableRow } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 import DataContext from '../../providers/DataContext';
-
+import randomNumber from '../../utils/random-number';
 import {
   isValidBirth,
   isValidGender,
-  isValidId,
   isValidName,
 } from '../../utils/validator';
 
@@ -32,35 +31,39 @@ const TableFormatter = ({ list }) => {
 
   const classes = useStyles();
 
-  const openModal = (data) => {
+  const openModal = (data, seed) => {
     setShowModal((prev) => !prev);
-    setClientDetails(data);
+    setClientDetails({ data, seed });
   };
 
   return (
     <TableBody>
-      {list.map((client) => (
-        <TableRow hover key={isValidId(client.id.value)}>
-          <TableCell align="left">
-            {isValidName(client.name.first, client.name.last)}
-          </TableCell>
+      {list.map(({ data, seed }) =>
+        data.map((client) => (
+          <TableRow hover key={randomNumber(99999, 10000)}>
+            <TableCell align="left">
+              {isValidName(client.name.first, client.name.last)}
+            </TableCell>
 
-          <TableCell align="center">{isValidGender(client.gender)}</TableCell>
-          <TableCell align="center">{isValidBirth(client.dob.date)}</TableCell>
+            <TableCell align="center">{isValidGender(client.gender)}</TableCell>
+            <TableCell align="center">
+              {isValidBirth(client.dob.date)}
+            </TableCell>
 
-          <TableCell align="center">
-            <Button
-              className={`${classes.backgroundColorBlue} ${classes.textColor} ${classes.backgroundColorBlueHover}`}
-              size="small"
-              variant="contained"
-              color="primary"
-              onClick={() => openModal(client)}
-            >
-              Visualizar
-            </Button>
-          </TableCell>
-        </TableRow>
-      ))}
+            <TableCell align="center">
+              <Button
+                className={`${classes.backgroundColorBlue} ${classes.textColor} ${classes.backgroundColorBlueHover}`}
+                size="small"
+                variant="contained"
+                color="primary"
+                onClick={() => openModal(client, seed)}
+              >
+                Visualizar
+              </Button>
+            </TableCell>
+          </TableRow>
+        )),
+      )}
     </TableBody>
   );
 };

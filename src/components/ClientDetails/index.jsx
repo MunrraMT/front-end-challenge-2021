@@ -19,11 +19,12 @@ import {
   isValidImage,
   isValidName,
   isValidNationality,
+  isValidPhone,
 } from '../../utils/validator';
 
 const useStyles = makeStyles(() => ({
   fullScreen: {
-    position: 'absolute',
+    position: 'fixed',
     top: '0',
     left: '0',
     zIndex: '2',
@@ -90,37 +91,42 @@ const ClientDetails = () => {
         >
           <ImageCircle
             ClassName={classes.perfilImage}
-            src={isValidImage(clientDetails.picture.large)}
+            src={isValidImage(clientDetails.data.picture.large)}
             alt="Imagem de perfil do cliente."
             width={150}
           />
           <Typography variant="h5" component="h2" align="center">
-            {isValidName(clientDetails.name.first, clientDetails.name.last)}
+            {isValidName(
+              clientDetails.data.name.first,
+              clientDetails.data.name.last,
+            )}
           </Typography>
           <Typography variant="h6" component="h3">
-            {isValidEmail(clientDetails.email)}
+            {isValidEmail(clientDetails.data.email)}
           </Typography>
         </Box>
 
-        <Typography>Gênero: {isValidGender(clientDetails.gender)}</Typography>
         <Typography>
-          Data de nascimento: {isValidBirth(clientDetails.dob.date)}
+          Gênero: {isValidGender(clientDetails.data.gender)}
         </Typography>
         <Typography>
-          Telefone: {isValidBirth(clientDetails.dob.date)}
+          Data de nascimento: {isValidBirth(clientDetails.data.dob.date)}
         </Typography>
         <Typography>
-          Nacionalidade: {isValidNationality(clientDetails.nat)}
+          Telefone: {isValidPhone(clientDetails.data.phone)}
+        </Typography>
+        <Typography>
+          Nacionalidade: {isValidNationality(clientDetails.data.nat)}
         </Typography>
         <Typography>
           Endereço:{' '}
           {isValidAddress(
-            clientDetails.location.city,
-            clientDetails.location.state,
-            clientDetails.location.country,
+            clientDetails.data.location.city,
+            clientDetails.data.location.state,
+            clientDetails.data.location.country,
           )}
         </Typography>
-        <Typography>ID: {isValidId(clientDetails.id.value)}</Typography>
+        <Typography>ID: {isValidId(clientDetails.data.id.value)}</Typography>
 
         <Box
           component="footer"
@@ -130,7 +136,8 @@ const ClientDetails = () => {
           alignItems="center"
           marginTop="2rem"
         >
-          <Typography>{`https://randomuser.me/api/?id=${clientDetails.id.value}`}</Typography>
+          <p>Onde estou: {}</p>
+          <Typography>{`https://randomuser.me/api/?seed=${clientDetails.seed}`}</Typography>
         </Box>
       </Container>
     </Box>

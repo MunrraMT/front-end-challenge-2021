@@ -10,9 +10,14 @@ const DataProvider = ({ children }) => {
     'Nascimento',
     'Ações',
   ]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([
+    {
+      seed: '',
+      data: [],
+    },
+  ]);
   const [textSearch, setTextSearch] = useState('');
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [clientDetails, setClientDetails] = useState('');
 
