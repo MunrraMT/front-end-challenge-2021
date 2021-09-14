@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
 import { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { Button, TableBody, TableCell, TableRow } from '@material-ui/core';
+import { Link, useLocation } from 'react-router-dom';
+import { TableBody, TableCell, TableRow } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 import DataContext from '../../providers/DataContext';
@@ -13,13 +13,13 @@ import {
 } from '../../utils/validator';
 
 const useStyles = makeStyles(() => ({
-  backgroundColorBlue: {
-    backgroundColor: '#209cee',
-  },
-  textColor: {
-    color: '#ffffff',
-  },
-  backgroundColorBlueHover: {
+  link: {
+    'textDecoration': 'none',
+    'backgroundColor': '#209cee',
+    'color': '#ffffff',
+    'fontFamily': 'Roboto',
+    'padding': '0.25rem 0.5rem',
+    'borderRadius': '0.25rem',
     '&:hover': {
       backgroundColor: '#146296',
     },
@@ -29,13 +29,9 @@ const useStyles = makeStyles(() => ({
 const TableFormatter = ({ list }) => {
   const { page } = useContext(DataContext);
 
-  const history = useHistory();
+  const location = useLocation();
 
   const classes = useStyles();
-
-  const openModal = (id) => {
-    history.push(`/patient/${id}`);
-  };
 
   return (
     <TableBody>
@@ -57,15 +53,17 @@ const TableFormatter = ({ list }) => {
               </TableCell>
 
               <TableCell align="center">
-                <Button
-                  className={`${classes.backgroundColorBlue} ${classes.textColor} ${classes.backgroundColorBlueHover}`}
-                  size="small"
-                  variant="contained"
-                  color="primary"
-                  onClick={() => openModal(id)}
+                <Link
+                  className={classes.link}
+                  to={{
+                    pathname: `/patient/${id}`,
+                    state: {
+                      background: location,
+                    },
+                  }}
                 >
                   Visualizar
-                </Button>
+                </Link>
               </TableCell>
             </TableRow>
           );

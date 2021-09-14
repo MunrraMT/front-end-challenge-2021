@@ -39,7 +39,7 @@ const SearchInput = ({ label, marginTop, marginBottom }) => {
           endAdornment: (
             <InputAdornment position="end">
               <img
-                src="./search.svg"
+                src="/search.svg"
                 alt="Icone de busca"
                 width="30"
                 height="30"
