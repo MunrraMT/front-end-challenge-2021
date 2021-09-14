@@ -11,7 +11,7 @@ import {
   isValidGender,
   isValidId,
   isValidName,
-} from './validator';
+} from '../../utils/validator';
 
 const useStyles = makeStyles(() => ({
   backgroundColorBlue: {
@@ -28,12 +28,13 @@ const useStyles = makeStyles(() => ({
 }));
 
 const TableFormatter = ({ list }) => {
-  const { setShowModal } = useContext(DataContext);
+  const { setShowModal, setClientDetails } = useContext(DataContext);
 
   const classes = useStyles();
 
-  const openModal = () => {
+  const openModal = (data) => {
     setShowModal((prev) => !prev);
+    setClientDetails(data);
   };
 
   return (
@@ -53,7 +54,7 @@ const TableFormatter = ({ list }) => {
               size="small"
               variant="contained"
               color="primary"
-              onClick={openModal}
+              onClick={() => openModal(client)}
             >
               Visualizar
             </Button>

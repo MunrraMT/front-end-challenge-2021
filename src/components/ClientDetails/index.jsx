@@ -10,6 +10,16 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import DataContext from '../../providers/DataContext';
 import ImageCircle from '../ImageCircle';
+import {
+  isValidAddress,
+  isValidBirth,
+  isValidEmail,
+  isValidGender,
+  isValidId,
+  isValidImage,
+  isValidName,
+  isValidNationality,
+} from '../../utils/validator';
 
 const useStyles = makeStyles(() => ({
   fullScreen: {
@@ -44,7 +54,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const ClientDetails = () => {
-  const { setShowModal } = useContext(DataContext);
+  const { setShowModal, clientDetails } = useContext(DataContext);
 
   const classes = useStyles();
 
@@ -59,8 +69,13 @@ const ClientDetails = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
+      onClick={closeModal}
     >
-      <Container className={classes.article} component="article">
+      <Container
+        className={classes.article}
+        component="article"
+        onClick={(e) => e.stopPropagation()}
+      >
         <Button onClick={closeModal} className={classes.btnClose} type="button">
           <CloseIcon />
         </Button>
@@ -75,24 +90,37 @@ const ClientDetails = () => {
         >
           <ImageCircle
             ClassName={classes.perfilImage}
-            src="./perfil.webp"
+            src={isValidImage(clientDetails.picture.large)}
             alt="Imagem de perfil do cliente."
-            width={120}
+            width={150}
           />
           <Typography variant="h5" component="h2" align="center">
-            André Rodrigues Melgaço dos Santos
+            {isValidName(clientDetails.name.first, clientDetails.name.last)}
           </Typography>
           <Typography variant="h6" component="h3">
-            dev-asantos@outlook.com
+            {isValidEmail(clientDetails.email)}
           </Typography>
         </Box>
 
-        <Typography>Gênero: Masculino</Typography>
-        <Typography>Data de nascimento: Masculino</Typography>
-        <Typography>Telefone: 65 9 9999 9999</Typography>
-        <Typography>Nacionalidade: Brasileiro</Typography>
-        <Typography>Endereço: Rua das Violetas, 17</Typography>
-        <Typography>ID: xxx.xxx.xxx-xx</Typography>
+        <Typography>Gênero: {isValidGender(clientDetails.gender)}</Typography>
+        <Typography>
+          Data de nascimento: {isValidBirth(clientDetails.dob.date)}
+        </Typography>
+        <Typography>
+          Telefone: {isValidBirth(clientDetails.dob.date)}
+        </Typography>
+        <Typography>
+          Nacionalidade: {isValidNationality(clientDetails.nat)}
+        </Typography>
+        <Typography>
+          Endereço:{' '}
+          {isValidAddress(
+            clientDetails.location.city,
+            clientDetails.location.state,
+            clientDetails.location.country,
+          )}
+        </Typography>
+        <Typography>ID: {isValidId(clientDetails.id.value)}</Typography>
 
         <Box
           component="footer"
@@ -102,9 +130,7 @@ const ClientDetails = () => {
           alignItems="center"
           marginTop="2rem"
         >
-          <Typography>
-            https://www.linkedin.com/in/andr%C3%A9-rodrigues-86369544/
-          </Typography>
+          <Typography>{`https://randomuser.me/api/?id=${clientDetails.id.value}`}</Typography>
         </Box>
       </Container>
     </Box>
