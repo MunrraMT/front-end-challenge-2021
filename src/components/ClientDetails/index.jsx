@@ -77,8 +77,6 @@ const ClientDetails = () => {
       });
   }, []);
 
-  console.log(data);
-
   const classes = useStyles();
 
   const closeModal = () => {
@@ -144,7 +142,9 @@ const ClientDetails = () => {
               data.location.country,
             )}
           </Typography>
-          <Typography>ID: {id}</Typography>
+          <Typography>
+            ID: {`${id}-${page}-${firstname}-${lastname}`}
+          </Typography>
 
           <Box
             component="footer"
