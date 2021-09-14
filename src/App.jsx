@@ -8,7 +8,7 @@ const App = () => {
   const context = useContext(DataContext);
 
   useEffect(() => {
-    fetch(`https://randomuser.me/api/?page=1&results=50`)
+    fetch(`https://randomuser.me/api/?page=${context.page}&results=50`)
       .then((response) => response.json())
       .then(({ results }) => context.setData(results));
   }, []);
