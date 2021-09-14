@@ -1,22 +1,10 @@
 import { useContext } from 'react';
 import { Box, InputAdornment, TextField } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
 import { number, string } from 'prop-types';
 
-import DataContext from '../../providers/DataContext';
+import useStyles from './styles';
 
-const useStyles = makeStyles(() => ({
-  marginBottom: (props) => ({
-    marginBottom: `${props.marginBottom}rem`,
-  }),
-  marginTop: (props) => ({
-    marginTop: `${props.marginTop}rem`,
-  }),
-  input: {
-    borderColor: '#209cee',
-    backgroundColor: '#ffffff',
-  },
-}));
+import DataContext from '../../providers/DataContext';
 
 const SearchInput = ({ label, marginTop, marginBottom }) => {
   const { textSearch, setTextSearch } = useContext(DataContext);

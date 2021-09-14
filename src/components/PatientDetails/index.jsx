@@ -1,14 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
-import {
-  Box,
-  Button,
-  Container,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
+import { Box, Button, Container, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+
+import useStyles from './styles';
 
 import ImageCircle from '../ImageCircle';
 import {
@@ -22,38 +18,6 @@ import {
   isValidPhone,
 } from '../../utils/validator';
 import Loading from '../Loading';
-
-const useStyles = makeStyles(() => ({
-  fullScreen: {
-    position: 'fixed',
-    top: '0',
-    left: '0',
-    zIndex: '2',
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: 'rgba(118, 146, 165, 0.8)',
-  },
-  article: {
-    width: '90%',
-    maxWidth: '40rem',
-    backgroundColor: '#ffffff',
-    borderRadius: '0.5rem',
-    position: 'relative',
-    paddingTop: '5rem',
-    padding: '2rem',
-  },
-  perfilImage: {
-    position: 'absolute',
-    top: 0,
-    transform: 'translateY(-50%)',
-  },
-  btnClose: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    height: '3rem',
-  },
-}));
 
 const PatientsDetails = () => {
   const [data, setData] = useState({});

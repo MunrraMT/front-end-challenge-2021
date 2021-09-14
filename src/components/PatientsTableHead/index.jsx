@@ -1,17 +1,6 @@
 import { TableCell, TableHead, TableRow } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
 
-const useStyles = makeStyles(() => ({
-  backgroundColorBlue: {
-    backgroundColor: '#209cee',
-  },
-  textColor: {
-    color: '#ffffff',
-  },
-  textUpperCase: {
-    textTransform: 'uppercase',
-  },
-}));
+import useStyles from './styles';
 
 const PatientsTableHead = () => {
   const classes = useStyles();

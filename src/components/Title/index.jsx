@@ -1,13 +1,7 @@
 import { Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
 import { string } from 'prop-types';
 
-const useStyles = makeStyles(() => ({
-  title: {
-    display: 'inline-block',
-    fontFamily: '"Leckerli One", cursive',
-  },
-}));
+import useStyles from './styles';
 
 const Title = ({ text, className }) => {
   const classes = useStyles();

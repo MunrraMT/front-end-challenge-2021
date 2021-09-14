@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Box, Container } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+
+import useStyles from './styles';
 
 import DataContext from '../../providers/DataContext';
 import SearchInput from '../SearchInput';
@@ -8,12 +9,6 @@ import TextBasic from '../TextBasic';
 import LoadingMore from '../LoadingMore';
 import Loading from '../Loading';
 import PatientsList from '../PatientsList';
-
-const useStyles = makeStyles(() => ({
-  background: {
-    backgroundColor: '#eeeeee',
-  },
-}));
 
 const MainContent = () => {
   const { data } = useContext(DataContext);

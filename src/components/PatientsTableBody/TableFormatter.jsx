@@ -2,8 +2,10 @@
 
 import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+
 import { TableBody, TableCell, TableRow } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+
+import useStyles from './styles';
 
 import DataContext from '../../providers/DataContext';
 import {
@@ -11,20 +13,6 @@ import {
   isValidGender,
   isValidName,
 } from '../../utils/validator';
-
-const useStyles = makeStyles(() => ({
-  link: {
-    'textDecoration': 'none',
-    'backgroundColor': '#209cee',
-    'color': '#ffffff',
-    'fontFamily': 'Roboto',
-    'padding': '0.25rem 0.5rem',
-    'borderRadius': '0.25rem',
-    '&:hover': {
-      backgroundColor: '#146296',
-    },
-  },
-}));
 
 const TableFormatter = ({ list }) => {
   const { page } = useContext(DataContext);

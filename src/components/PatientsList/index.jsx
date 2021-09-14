@@ -1,18 +1,13 @@
 import { useContext } from 'react';
 
 import { Box, Paper, Table, TableContainer } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+
+import useStyles from './styles';
 
 import DataContext from '../../providers/DataContext';
 import Loading from '../Loading';
 import PatientsTableBody from '../PatientsTableBody';
 import PatientsTableHead from '../PatientsTableHead';
-
-const useStyles = makeStyles(() => ({
-  relative: {
-    position: 'relative',
-  },
-}));
 
 const PatientsList = () => {
   const { data } = useContext(DataContext);

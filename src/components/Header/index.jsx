@@ -1,15 +1,9 @@
 import { Box, Grid } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+
+import useStyles from './styles';
 
 import ImageCircle from '../ImageCircle';
 import Title from '../Title';
-
-const useStyles = makeStyles(() => ({
-  title: {
-    marginRight: 'auto',
-    marginLeft: '1rem',
-  },
-}));
 
 const Header = () => {
   const classes = useStyles();

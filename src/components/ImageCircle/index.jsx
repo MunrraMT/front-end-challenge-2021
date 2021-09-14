@@ -1,11 +1,6 @@
-import { makeStyles } from '@material-ui/styles';
 import { number, string } from 'prop-types';
 
-const useStyles = makeStyles(() => ({
-  image: {
-    borderRadius: '100%',
-  },
-}));
+import useStyles from './styles';
 
 const ImageCircle = ({ src, alt, width, ClassName }) => {
   const classes = useStyles();
