@@ -9,9 +9,10 @@ import TextBasic from '../TextBasic';
 import LoadingMore from '../LoadingMore';
 import Loading from '../Loading';
 import PatientsList from '../PatientsList';
+import ErrorMessage from '../ErrorMessage';
 
 const MainContent = () => {
-  const { data } = useContext(DataContext);
+  const { data, error } = useContext(DataContext);
 
   const classes = useStyles();
 
@@ -33,9 +34,11 @@ const MainContent = () => {
 
         <SearchInput label="Pesquisar" />
 
-        {data.length > 0 ? <PatientsList /> : <Loading />}
+        {error && <ErrorMessage />}
+        {!error && data.length <= 0 && <Loading />}
+        {!error && data.length > 0 && <PatientsList />}
 
-        <LoadingMore />
+        {!error && data.length > 0 && <LoadingMore />}
       </Container>
     </Box>
   );

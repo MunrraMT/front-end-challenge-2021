@@ -4,13 +4,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import DataContext from './providers/DataContext';
 import HomePage from './pages/HomePage';
 import PatientsDetails from './components/PatientDetails';
+import handleError from './utils/handle-error';
 
 const App = () => {
-  const { setData } = useContext(DataContext);
+  const { setData, setError } = useContext(DataContext);
 
   useEffect(() => {
     fetch(`https://randomuser.me/api/?page=0&results=50`)
-      .then((response) => response.json())
+      .then((response) => handleError(response, setError))
       .then((dataFetch) => {
         const newData = dataFetch.results.map((patient) => ({
           ...patient,
@@ -19,6 +20,9 @@ const App = () => {
         }));
 
         setData(newData);
+      })
+      .catch(() => {
+        setError(true);
       });
   }, []);
 

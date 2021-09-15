@@ -5,6 +5,7 @@ import DataContext from './DataContext';
 
 const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
+  const [error, setError] = useState(false);
   const [textSearch, setTextSearch] = useState('');
 
   return (
@@ -12,6 +13,8 @@ const DataProvider = ({ children }) => {
       value={{
         data,
         setData,
+        error,
+        setError,
         textSearch,
         setTextSearch,
       }}
