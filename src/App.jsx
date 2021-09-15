@@ -1,9 +1,11 @@
 import { useContext, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/core/styles';
 
 import DataContext from './providers/DataContext';
 import HomePage from './pages/HomePage';
 import PatientsDetails from './components/PatientDetails';
+import theme from './theme';
 
 const App = () => {
   const { setData, setError } = useContext(DataContext);
@@ -27,7 +29,7 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Switch>
           <Route
@@ -38,7 +40,7 @@ const App = () => {
 
         <Route path="/" component={HomePage} />
       </BrowserRouter>
-    </>
+    </ThemeProvider>
   );
 };
 
