@@ -6,7 +6,6 @@ import DataContext from './DataContext';
 const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [textSearch, setTextSearch] = useState('');
-  const [page, setPage] = useState(0);
 
   return (
     <DataContext.Provider
@@ -15,8 +14,6 @@ const DataProvider = ({ children }) => {
         setData,
         textSearch,
         setTextSearch,
-        page,
-        setPage,
       }}
     >
       {children}

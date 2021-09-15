@@ -31,20 +31,9 @@ const MainContent = () => {
           molestias nobis, accusantium vero!
         </TextBasic>
 
-        <SearchInput marginBottom={2} marginTop={2} label="Pesquisar" />
+        <SearchInput label="Pesquisar" />
 
-        {data.length > 0 ? (
-          <PatientsList />
-        ) : (
-          <Box
-            component="section"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Loading />
-          </Box>
-        )}
+        {data.length > 0 ? <PatientsList /> : <Loading />}
 
         <LoadingMore />
       </Container>

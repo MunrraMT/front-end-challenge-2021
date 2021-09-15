@@ -11,13 +11,14 @@ const App = () => {
   useEffect(() => {
     fetch(`https://randomuser.me/api/?page=0&results=50`)
       .then((response) => response.json())
-      .then((data) => {
-        setData([
-          {
-            seed: data.info.seed,
-            data: data.results,
-          },
-        ]);
+      .then((dataFetch) => {
+        const newData = dataFetch.results.map((patient) => ({
+          ...patient,
+          page: 0,
+          seed: dataFetch.info.seed,
+        }));
+
+        setData(newData);
       });
   }, []);
 
@@ -26,7 +27,7 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route
-            path="/patient/:id-:page-:firstname-:lastname"
+            path="/patient/:seed-:page-:uuid"
             component={PatientsDetails}
           />
         </Switch>

@@ -1,15 +1,15 @@
 import { useContext } from 'react';
 import { Box, InputAdornment, TextField } from '@material-ui/core';
-import { number, string } from 'prop-types';
+import { string } from 'prop-types';
 
 import useStyles from './styles';
 
 import DataContext from '../../providers/DataContext';
 
-const SearchInput = ({ label, marginTop, marginBottom }) => {
+const SearchInput = ({ label }) => {
   const { textSearch, setTextSearch } = useContext(DataContext);
 
-  const classes = useStyles({ marginTop, marginBottom });
+  const classes = useStyles();
 
   return (
     <Box component="section" display="flex" justifyContent="center">
@@ -40,15 +40,8 @@ const SearchInput = ({ label, marginTop, marginBottom }) => {
   );
 };
 
-SearchInput.defaultProps = {
-  marginBottom: 0,
-  marginTop: 0,
-};
-
 SearchInput.propTypes = {
   label: string.isRequired,
-  marginBottom: number,
-  marginTop: number,
 };
 
 export default SearchInput;

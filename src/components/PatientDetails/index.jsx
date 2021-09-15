@@ -24,18 +24,13 @@ const PatientsDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const history = useHistory();
-  const { id, page, firstname, lastname } = useParams();
+  const { seed, page, uuid } = useParams();
 
   useEffect(() => {
-    fetch(`https://randomuser.me/api/?page=${page}&results=50&seed=${id}`)
+    fetch(`https://randomuser.me/api/?page=${page}&results=50&seed=${seed}`)
       .then((response) => response.json())
       .then(({ results }) => {
-        setData(
-          results.find(
-            (client) =>
-              client.name.first === firstname && client.name.last === lastname,
-          ),
-        );
+        setData(results.find((client) => client.login.uuid === uuid));
 
         setIsLoaded(true);
       });
@@ -106,9 +101,7 @@ const PatientsDetails = () => {
               data.location.country,
             )}
           </Typography>
-          <Typography>
-            ID: {`${id}-${page}-${firstname}-${lastname}`}
-          </Typography>
+          <Typography>ID: {uuid}</Typography>
 
           <Box
             component="footer"
@@ -118,7 +111,7 @@ const PatientsDetails = () => {
             alignItems="center"
             marginTop="2rem"
           >
-            <Typography>{`http://localhost:3000/patient/${id}-${page}-${firstname}-${lastname}`}</Typography>
+            <Typography>{`http://localhost:3000/patient/${seed}-${page}-${uuid}`}</Typography>
           </Box>
         </Container>
       ) : (
