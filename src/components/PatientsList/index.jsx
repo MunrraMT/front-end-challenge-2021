@@ -16,12 +16,8 @@ const PatientsList = () => {
 
   return (
     <>
-      <TableContainer component={Paper} className={classes.relative}>
-        <Table
-          className={classes.relative}
-          size="small"
-          aria-label="a dense table"
-        >
+      <TableContainer component={Paper} className={classes.container}>
+        <Table stickyHeader aria-label="Tabela de pacientes" size="small">
           <PatientsTableHead />
           <PatientsTableBody />
         </Table>

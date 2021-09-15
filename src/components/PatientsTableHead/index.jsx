@@ -9,10 +9,10 @@ const PatientsTableHead = () => {
 
   return (
     <TableHead>
-      <TableRow className={classes.backgroundColorBlue}>
+      <TableRow>
         {titles.map((item) => (
           <TableCell
-            className={`${classes.textColor} ${classes.textUpperCase}`}
+            className={`${classes.textColor} ${classes.textUpperCase} ${classes.backgroundColorBlue}`}
             align={item === 'Nome' ? 'left' : 'center'}
             key={item}
           >

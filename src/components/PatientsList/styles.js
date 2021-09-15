@@ -1,8 +1,10 @@
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(() => ({
-  relative: {
-    position: 'relative',
+  container: {
+    minHeight: '50vh',
+    maxHeight: '50vh',
+    borderRadius: '0',
   },
 }));
 
