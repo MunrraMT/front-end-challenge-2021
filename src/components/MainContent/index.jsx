@@ -10,6 +10,7 @@ import LoadingMore from '../LoadingMore';
 import Loading from '../Loading';
 import PatientsList from '../PatientsList';
 import ErrorMessage from '../ErrorMessage';
+import SearchFilter from '../SearchFilter';
 
 const MainContent = () => {
   const { data, error } = useContext(DataContext);
@@ -33,6 +34,7 @@ const MainContent = () => {
         </TextBasic>
 
         <SearchInput label="Pesquisar" />
+        <SearchFilter />
 
         {error && <ErrorMessage />}
 
