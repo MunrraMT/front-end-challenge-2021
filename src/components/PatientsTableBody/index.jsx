@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { TableBody } from '@material-ui/core';
 
@@ -7,13 +7,15 @@ import filterList from './filter-list';
 import formatList from './format-list';
 
 const PatientsTableBody = () => {
-  const { data, textSearch } = useContext(DataContext);
+  const { data, setDataFiltered, textSearch } = useContext(DataContext);
 
-  return (
-    <TableBody>
-      {textSearch ? formatList(filterList(data, textSearch)) : formatList(data)}
-    </TableBody>
-  );
+  const newData = filterList(data, textSearch);
+
+  useEffect(() => {
+    setDataFiltered(newData);
+  }, [textSearch]);
+
+  return <TableBody>{formatList(newData)}</TableBody>;
 };
 
 export default PatientsTableBody;

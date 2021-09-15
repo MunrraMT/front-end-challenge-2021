@@ -1,4 +1,6 @@
 const filterList = (data, textSearch) => {
+  if (textSearch === '') return data;
+
   const newData = data.filter(
     (client) =>
       `${client.name.first} ${client.name.last}`

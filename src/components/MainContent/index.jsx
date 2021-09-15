@@ -35,10 +35,15 @@ const MainContent = () => {
         <SearchInput label="Pesquisar" />
 
         {error && <ErrorMessage />}
-        {!error && data.length <= 0 && <Loading />}
-        {!error && data.length > 0 && <PatientsList />}
 
-        {!error && data.length > 0 && <LoadingMore />}
+        {!error && data.length <= 0 && <Loading />}
+
+        {!error && data.length > 0 && (
+          <>
+            <PatientsList />
+            <LoadingMore />
+          </>
+        )}
       </Container>
     </Box>
   );

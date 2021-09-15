@@ -4,12 +4,14 @@ import ReplayIcon from '@material-ui/icons/Replay';
 
 import DataContext from '../../providers/DataContext';
 import Loading from '../Loading';
+import ErrorMessage from '../ErrorMessage';
 
 const LoadingMore = () => {
   const { setData } = useContext(DataContext);
 
   const [page, setPage] = useState(1);
   const [isLoaded, setIsLoaded] = useState(true);
+  const [error, setError] = useState(false);
 
   const morePages = () => {
     setIsLoaded(false);
@@ -26,6 +28,13 @@ const LoadingMore = () => {
 
         setData((prev) => [...prev, ...newData]);
         setIsLoaded(true);
+      })
+      .catch(() => {
+        setError(true);
+        setTimeout(() => {
+          setError(false);
+          setIsLoaded(true);
+        }, 2000);
       });
   };
 
@@ -36,7 +45,9 @@ const LoadingMore = () => {
       justifyContent="center"
       marginTop="2rem"
     >
-      {isLoaded ? (
+      {error && <ErrorMessage />}
+      {!error && !isLoaded && <Loading />}
+      {!error && isLoaded && (
         <Button
           onClick={morePages}
           size="small"
@@ -46,8 +57,6 @@ const LoadingMore = () => {
         >
           Loading more
         </Button>
-      ) : (
-        <Loading />
       )}
     </Box>
   );
