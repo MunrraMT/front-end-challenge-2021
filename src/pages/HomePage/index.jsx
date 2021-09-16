@@ -7,8 +7,6 @@ import MainContent from '../../components/MainContent';
 const HomePage = () => {
   const { setData, setError, urlInfo } = useContext(DataContext);
 
-  console.log(urlInfo);
-
   useEffect(() => {
     fetch(
       `${
