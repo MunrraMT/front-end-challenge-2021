@@ -20,6 +20,12 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "!src/index.jsx",
+      "!src/reportWebVitals.js"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
