@@ -33,7 +33,7 @@ const MainContent = () => {
           molestias nobis, accusantium vero!
         </TextBasic>
 
-        <SearchInput label="Pesquisar" />
+        <SearchInput />
         <SearchFilter />
 
         {error && <ErrorMessage />}

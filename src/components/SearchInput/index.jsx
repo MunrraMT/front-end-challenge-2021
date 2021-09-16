@@ -1,13 +1,12 @@
 import { useContext, useEffect, useRef } from 'react';
 
 import { Box, InputAdornment, TextField } from '@material-ui/core';
-import { string } from 'prop-types';
 
 import useStyles from './styles';
 
 import DataContext from '../../providers/DataContext';
 
-const SearchInput = ({ label }) => {
+const SearchInput = () => {
   const { textSearch, setTextSearch } = useContext(DataContext);
 
   const input = useRef(null);
@@ -28,7 +27,7 @@ const SearchInput = ({ label }) => {
         size="small"
         fullWidth
         id="outlined-search"
-        label={label}
+        label="Pesquisar"
         type="search"
         variant="outlined"
         InputProps={{
@@ -46,10 +45,6 @@ const SearchInput = ({ label }) => {
       />
     </Box>
   );
-};
-
-SearchInput.propTypes = {
-  label: string.isRequired,
 };
 
 export default SearchInput;
