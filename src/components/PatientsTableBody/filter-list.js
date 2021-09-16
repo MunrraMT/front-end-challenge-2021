@@ -1,11 +1,13 @@
 const filterList = (data, filterSearch) => {
   if (filterSearch.text.length > 0 && filterSearch.gender === 'all') {
-    const newData = data.filter((client) =>
-      filterSearch.type === 'name'
-        ? `${client.name.first} ${client.name.last}`
-        : `${client.nat}`
-            .toLowerCase()
-            .indexOf(filterSearch.text.toLowerCase()) !== -1,
+    const newData = data.filter(
+      (client) =>
+        (filterSearch.type === 'name'
+          ? `${client.name.first} ${client.name.last}`
+          : `${client.nat}`
+        )
+          .toLowerCase()
+          .indexOf(filterSearch.text.toLowerCase()) !== -1,
     );
 
     return newData;
@@ -16,12 +18,14 @@ const filterList = (data, filterSearch) => {
       (client) => client.gender === filterSearch.gender,
     );
 
-    const newData = dataPerGender.filter((client) =>
-      filterSearch.type === 'name'
-        ? `${client.name.first} ${client.name.last}`
-        : `${client.nat}`
-            .toLowerCase()
-            .indexOf(filterSearch.text.toLowerCase()) !== -1,
+    const newData = dataPerGender.filter(
+      (client) =>
+        (filterSearch.type === 'name'
+          ? `${client.name.first} ${client.name.last}`
+          : `${client.nat}`
+        )
+          .toLowerCase()
+          .indexOf(filterSearch.text.toLowerCase()) !== -1,
     );
 
     return newData;
