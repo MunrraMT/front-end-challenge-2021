@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+
 import './index.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import DataProvider from './providers/DataProvider';
@@ -8,7 +11,9 @@ import DataProvider from './providers/DataProvider';
 ReactDOM.render(
   <React.StrictMode>
     <DataProvider>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </DataProvider>
   </React.StrictMode>,
   document.getElementById('root'),

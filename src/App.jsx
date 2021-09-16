@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import HomePage from './pages/HomePage';
@@ -7,21 +7,19 @@ import theme from './theme';
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <BrowserRouter>
-      <Switch>
-        <Route
-          exact
-          path="/patient/:seed-:page-:uuid"
-          component={PatientsDetails}
-        />
+    <Switch>
+      <Route
+        exact
+        path="/patient/:seed-:page-:uuid"
+        component={PatientsDetails}
+      />
 
-        <Route path="*">
-          <Redirect to="/" />
-        </Route>
-      </Switch>
+      <Route path="*">
+        <Redirect to="/" />
+      </Route>
+    </Switch>
 
-      <Route path="/" component={HomePage} />
-    </BrowserRouter>
+    <Route path="/" component={HomePage} />
   </ThemeProvider>
 );
 
