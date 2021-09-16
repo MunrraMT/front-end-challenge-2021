@@ -32,7 +32,7 @@ const PatientsTable = () => {
       {numberPatients > 0 && <PatientsTableCount />}
 
       {filterSearch.name.length > 0 && numberPatients === 0 && (
-        <ErrorMessage message="Nome não encontrado na tabela." />
+        <ErrorMessage message="Paciente não encontrado na tabela." />
       )}
     </>
   );

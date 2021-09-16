@@ -9,7 +9,7 @@ const PatientsTableCount = () => {
 
   return (
     <Box component="section" display="flex" justifyContent="end">
-      <Typography>Numero de paciente na tabela: {numberPatients}</Typography>
+      <Typography>Número de pacientes na tabela: {numberPatients}</Typography>
     </Box>
   );
 };

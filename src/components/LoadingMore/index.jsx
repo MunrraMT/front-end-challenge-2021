@@ -43,7 +43,7 @@ const LoadingMore = () => {
       component="section"
       display="flex"
       justifyContent="center"
-      marginTop="2rem"
+      marginTop="1rem"
     >
       {error && <ErrorMessage />}
       {!error && !isLoaded && <Loading />}
@@ -55,7 +55,7 @@ const LoadingMore = () => {
           color="default"
           startIcon={<ReplayIcon />}
         >
-          Loading more
+          Carregar mais pacientes na tabela
         </Button>
       )}
     </Box>
