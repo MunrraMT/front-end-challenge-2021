@@ -5,10 +5,18 @@ import Header from '../../components/Header';
 import MainContent from '../../components/MainContent';
 
 const HomePage = () => {
-  const { setData, setError } = useContext(DataContext);
+  const { setData, setError, urlInfo } = useContext(DataContext);
+
+  console.log(urlInfo);
 
   useEffect(() => {
-    fetch(`https://randomuser.me/api/?page=0&results=50`)
+    fetch(
+      `${
+        urlInfo.seed !== ''
+          ? `https://randomuser.me/api/?page=${urlInfo.page}&results=50&seed=${urlInfo.seed}`
+          : 'https://randomuser.me/api/?page=0&results=50'
+      }`,
+    )
       .then((response) => {
         if (!response.ok) setError(true);
 
@@ -23,7 +31,7 @@ const HomePage = () => {
 
         setData(newData);
       });
-  }, []);
+  }, [urlInfo]);
 
   return (
     <>

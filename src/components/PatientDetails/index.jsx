@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { Box, Button, Container, Typography } from '@material-ui/core';
@@ -6,6 +6,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import useStyles from './styles';
 
+import DataContext from '../../providers/DataContext';
 import ImageCircle from '../ImageCircle';
 import {
   isValidAddress,
@@ -22,12 +23,22 @@ import handleError from '../../utils/handle-error';
 import ErrorMessage from '../ErrorMessage';
 
 const PatientsDetails = () => {
+  const { setUrlInfo } = useContext(DataContext);
+
   const [data, setData] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState();
 
   const history = useHistory();
   const { seed, page, uuid } = useParams();
+
+  useEffect(() => {
+    setUrlInfo({
+      seed,
+      page,
+      uuid,
+    });
+  }, []);
 
   useEffect(() => {
     fetch(`https://randomuser.me/api/?page=${page}&results=50&seed=${seed}`)

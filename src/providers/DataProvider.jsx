@@ -13,6 +13,7 @@ const DataProvider = ({ children }) => {
     type: '',
   });
   const [numberPatients, setNumberPatients] = useState(0);
+  const [urlInfo, setUrlInfo] = useState({ seed: '', page: '', uuid: '' });
 
   return (
     <DataContext.Provider
@@ -27,6 +28,8 @@ const DataProvider = ({ children }) => {
         setNumberPatients,
         filterSearch,
         setFilterSearch,
+        urlInfo,
+        setUrlInfo,
       }}
     >
       {children}
