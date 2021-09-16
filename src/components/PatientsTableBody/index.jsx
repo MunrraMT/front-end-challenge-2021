@@ -7,15 +7,15 @@ import filterList from './filter-list';
 import formatList from './format-list';
 
 const PatientsTableBody = () => {
-  const { data, setDataFiltered, textSearch, setNumberPatients } =
+  const { data, setDataFiltered, filterSearch, setNumberPatients } =
     useContext(DataContext);
 
-  const newData = filterList(data, textSearch);
+  const newData = filterList(data, filterSearch);
 
   useEffect(() => {
     setDataFiltered(newData);
     setNumberPatients(newData.length);
-  }, [textSearch, data]);
+  }, [filterSearch, data]);
 
   return <TableBody>{formatList(newData)}</TableBody>;
 };

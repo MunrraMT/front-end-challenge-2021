@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
 import { Box, InputAdornment, TextField } from '@material-ui/core';
 
@@ -7,7 +7,9 @@ import useStyles from './styles';
 import DataContext from '../../providers/DataContext';
 
 const SearchInput = () => {
-  const { textSearch, setTextSearch } = useContext(DataContext);
+  const { setFilterSearch } = useContext(DataContext);
+
+  const [value, setValue] = useState('');
 
   const input = useRef(null);
 
@@ -15,14 +17,22 @@ const SearchInput = () => {
     input.current.focus();
   }, []);
 
+  useEffect(() => {
+    setFilterSearch((prev) => ({ ...prev, name: value }));
+  }, [value]);
+
   const classes = useStyles();
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <Box component="section" display="flex" justifyContent="center">
       <TextField
         inputRef={input}
-        value={textSearch}
-        onInput={(e) => setTextSearch(e.target.value)}
+        value={value}
+        onChange={handleChange}
         className={`${classes.marginBottom} ${classes.marginTop} ${classes.input}`}
         size="small"
         fullWidth

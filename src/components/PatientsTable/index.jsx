@@ -11,7 +11,7 @@ import ErrorMessage from '../ErrorMessage';
 import PatientsTableCount from '../PatientsTableCount';
 
 const PatientsTable = () => {
-  const { textSearch, numberPatients } = useContext(DataContext);
+  const { filterSearch, numberPatients } = useContext(DataContext);
 
   const classes = useStyles();
 
@@ -31,7 +31,7 @@ const PatientsTable = () => {
 
       {numberPatients > 0 && <PatientsTableCount />}
 
-      {textSearch.length > 0 && numberPatients === 0 && (
+      {filterSearch.name.length > 0 && numberPatients === 0 && (
         <ErrorMessage message="Nome não encontrado na tabela." />
       )}
     </>

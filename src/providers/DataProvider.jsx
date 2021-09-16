@@ -7,7 +7,7 @@ const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [dataFiltered, setDataFiltered] = useState([]);
   const [error, setError] = useState(false);
-  const [textSearch, setTextSearch] = useState('');
+  const [filterSearch, setFilterSearch] = useState({ name: '', gender: '' });
   const [numberPatients, setNumberPatients] = useState(0);
 
   return (
@@ -17,12 +17,12 @@ const DataProvider = ({ children }) => {
         setData,
         error,
         setError,
-        textSearch,
-        setTextSearch,
         dataFiltered,
         setDataFiltered,
         numberPatients,
         setNumberPatients,
+        filterSearch,
+        setFilterSearch,
       }}
     >
       {children}
