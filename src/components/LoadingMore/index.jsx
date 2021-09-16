@@ -55,7 +55,7 @@ const LoadingMore = () => {
           color="default"
           startIcon={<ReplayIcon />}
         >
-          Carregar mais pacientes na tabela
+          Carregar mais pacientes
         </Button>
       )}
     </Box>
