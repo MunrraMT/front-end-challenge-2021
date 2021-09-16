@@ -7,7 +7,11 @@ const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [dataFiltered, setDataFiltered] = useState([]);
   const [error, setError] = useState(false);
-  const [filterSearch, setFilterSearch] = useState({ name: '', gender: '' });
+  const [filterSearch, setFilterSearch] = useState({
+    text: '',
+    gender: '',
+    type: '',
+  });
   const [numberPatients, setNumberPatients] = useState(0);
 
   return (

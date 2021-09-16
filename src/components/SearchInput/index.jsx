@@ -1,6 +1,15 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 
-import { Box, InputAdornment, TextField } from '@material-ui/core';
+import {
+  Box,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  InputAdornment,
+  Radio,
+  RadioGroup,
+  TextField,
+} from '@material-ui/core';
 
 import useStyles from './styles';
 
@@ -9,7 +18,8 @@ import DataContext from '../../providers/DataContext';
 const SearchInput = () => {
   const { setFilterSearch } = useContext(DataContext);
 
-  const [value, setValue] = useState('');
+  const [typeSearch, setTypeSearch] = useState('name');
+  const [textSearch, setTextSearch] = useState('');
 
   const input = useRef(null);
 
@@ -18,25 +28,60 @@ const SearchInput = () => {
   }, []);
 
   useEffect(() => {
-    setFilterSearch((prev) => ({ ...prev, name: value }));
-  }, [value]);
+    setFilterSearch((prev) => ({ ...prev, text: textSearch }));
+  }, [textSearch]);
+
+  useEffect(() => {
+    setFilterSearch((prev) => ({ ...prev, type: typeSearch }));
+  }, [typeSearch]);
 
   const classes = useStyles();
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  const handleChangeTextInput = (e) => {
+    setTextSearch(e.target.value);
+  };
+
+  const handleChangeTypeInput = (e) => {
+    setTypeSearch(e.target.value);
   };
 
   return (
-    <Box component="section" display="flex" justifyContent="center">
+    <Box
+      component="section"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <FormControl component="fieldset" className={classes.type}>
+        <FormLabel component="legend">Tipo de pesquisa</FormLabel>
+        <RadioGroup
+          row
+          aria-label="filtro por gênero"
+          name="gender"
+          value={typeSearch}
+          onChange={handleChangeTypeInput}
+        >
+          <FormControlLabel
+            value="name"
+            control={<Radio color="primary" />}
+            label="Nome"
+          />
+          <FormControlLabel
+            value="nationality"
+            control={<Radio color="primary" />}
+            label="Nacionalidade"
+          />
+        </RadioGroup>
+      </FormControl>
+
       <TextField
-        inputRef={input}
-        value={value}
-        onChange={handleChange}
-        className={`${classes.marginBottom} ${classes.marginTop} ${classes.input}`}
-        size="small"
         fullWidth
-        id="outlined-search"
+        inputRef={input}
+        value={textSearch}
+        onChange={handleChangeTextInput}
+        className={classes.input}
+        size="small"
+        id="text-search"
         label="Pesquisar"
         type="search"
         variant="outlined"

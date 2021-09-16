@@ -5,6 +5,7 @@ import {
   isValidBirth,
   isValidGender,
   isValidName,
+  isValidNationality,
 } from '../../utils/validator';
 
 import useStyles from './styles';
@@ -20,6 +21,7 @@ const formatList = (list) => {
         {isValidName(client.name.first, client.name.last)}
       </TableCell>
 
+      <TableCell align="center">{isValidNationality(client.nat)}</TableCell>
       <TableCell align="center">{isValidGender(client.gender)}</TableCell>
       <TableCell align="center">{isValidBirth(client.dob.date)}</TableCell>
 

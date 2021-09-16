@@ -13,6 +13,9 @@ export const isValidName = (firstName, lastName) => {
   return `${first} ${last}`;
 };
 
+export const isValidNationality = (nat) =>
+  nat || 'Sem nacionalidade cadastrada';
+
 export const isValidGender = (gender) => {
   if (!gender) return 'Sem gênero cadastrada';
 
@@ -26,9 +29,6 @@ export const isValidBirth = (birth) => {
 };
 
 export const isValidEmail = (email) => email || 'Sem email cadastrado';
-
-export const isValidNationality = (nat) =>
-  nat || 'Sem nacionalidade cadastrada';
 
 export const isValidAddress = (city, state, country) => {
   const address = `${city}, ${state}/${country}`;

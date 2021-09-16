@@ -5,7 +5,7 @@ import useStyles from './styles';
 const PatientsTableHead = () => {
   const classes = useStyles();
 
-  const titles = ['Nome', 'Gênero', 'Nascimento', 'Ações'];
+  const titles = ['Nome', 'Nacionalidade', 'Gênero', 'Nascimento', 'Ações'];
 
   return (
     <TableHead>

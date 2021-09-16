@@ -1,25 +1,27 @@
 const filterList = (data, filterSearch) => {
-  if (filterSearch.name.length > 0 && filterSearch.gender === 'all') {
-    const newData = data.filter(
-      (client) =>
-        `${client.name.first} ${client.name.last}`
-          .toLowerCase()
-          .indexOf(filterSearch.name.toLowerCase()) !== -1,
+  if (filterSearch.text.length > 0 && filterSearch.gender === 'all') {
+    const newData = data.filter((client) =>
+      filterSearch.type === 'name'
+        ? `${client.name.first} ${client.name.last}`
+        : `${client.nat}`
+            .toLowerCase()
+            .indexOf(filterSearch.text.toLowerCase()) !== -1,
     );
 
     return newData;
   }
 
-  if (filterSearch.name.length > 0 && filterSearch.gender !== 'all') {
+  if (filterSearch.text.length > 0 && filterSearch.gender !== 'all') {
     const dataPerGender = data.filter(
       (client) => client.gender === filterSearch.gender,
     );
 
-    const newData = dataPerGender.filter(
-      (client) =>
-        `${client.name.first} ${client.name.last}`
-          .toLowerCase()
-          .indexOf(filterSearch.name.toLowerCase()) !== -1,
+    const newData = dataPerGender.filter((client) =>
+      filterSearch.type === 'name'
+        ? `${client.name.first} ${client.name.last}`
+        : `${client.nat}`
+            .toLowerCase()
+            .indexOf(filterSearch.text.toLowerCase()) !== -1,
     );
 
     return newData;

@@ -6,6 +6,11 @@ const useStyles = makeStyles(() => ({
     backgroundColor: '#ffffff',
     marginTop: '2rem',
     marginBottom: '2rem',
+    width: '100%',
+  },
+  type: {
+    width: '25rem',
+    marginRight: '2rem',
   },
 }));
 
