@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
     position: 'fixed',
     top: '0',
     left: '0',
-    zIndex: '2',
+    zIndex: '3',
     width: '100vw',
     height: '100vh',
     backgroundColor: 'rgba(118, 146, 165, 0.8)',

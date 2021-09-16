@@ -10,6 +10,9 @@ const useStyles = makeStyles(() => ({
   textUpperCase: {
     textTransform: 'uppercase',
   },
+  head: {
+    zIndex: '2',
+  },
 }));
 
 export default useStyles;
