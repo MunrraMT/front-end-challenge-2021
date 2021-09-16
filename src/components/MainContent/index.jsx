@@ -8,7 +8,7 @@ import SearchInput from '../SearchInput';
 import TextBasic from '../TextBasic';
 import LoadingMore from '../LoadingMore';
 import Loading from '../Loading';
-import PatientsList from '../PatientsList';
+import PatientsTable from '../PatientsTable';
 import ErrorMessage from '../ErrorMessage';
 import SearchFilter from '../SearchFilter';
 
@@ -42,7 +42,7 @@ const MainContent = () => {
 
         {!error && data.length > 0 && (
           <>
-            <PatientsList />
+            <PatientsTable />
             <LoadingMore />
           </>
         )}

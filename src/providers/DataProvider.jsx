@@ -8,6 +8,7 @@ const DataProvider = ({ children }) => {
   const [dataFiltered, setDataFiltered] = useState([]);
   const [error, setError] = useState(false);
   const [textSearch, setTextSearch] = useState('');
+  const [numberPatients, setNumberPatients] = useState(0);
 
   return (
     <DataContext.Provider
@@ -20,6 +21,8 @@ const DataProvider = ({ children }) => {
         setTextSearch,
         dataFiltered,
         setDataFiltered,
+        numberPatients,
+        setNumberPatients,
       }}
     >
       {children}
