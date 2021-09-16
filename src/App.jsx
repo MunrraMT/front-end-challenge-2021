@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import DataContext from './providers/DataContext';
@@ -33,9 +33,14 @@ const App = () => {
       <BrowserRouter>
         <Switch>
           <Route
+            exact
             path="/patient/:seed-:page-:uuid"
             component={PatientsDetails}
           />
+
+          <Route path="*">
+            <Redirect to="/" />
+          </Route>
         </Switch>
 
         <Route path="/" component={HomePage} />
