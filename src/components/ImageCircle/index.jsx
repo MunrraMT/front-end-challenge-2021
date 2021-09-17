@@ -1,4 +1,4 @@
-import { number, string } from 'prop-types';
+import { string } from 'prop-types';
 
 import useStyles from './styles';
 
@@ -18,14 +18,14 @@ const ImageCircle = ({ src, alt, width, ClassName }) => {
 };
 
 ImageCircle.defaultProps = {
-  width: 50,
+  width: '50',
   ClassName: '',
 };
 
 ImageCircle.propTypes = {
   src: string.isRequired,
   alt: string.isRequired,
-  width: number,
+  width: string,
   ClassName: string,
 };
 
