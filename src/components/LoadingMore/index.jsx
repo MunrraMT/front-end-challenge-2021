@@ -1,4 +1,7 @@
-import { useContext, useState } from 'react';
+/* eslint-disable no-console */
+
+import { useContext, useEffect, useState } from 'react';
+
 import { Box, Button } from '@material-ui/core';
 import ReplayIcon from '@material-ui/icons/Replay';
 
@@ -16,27 +19,40 @@ const LoadingMore = () => {
   const morePages = () => {
     setIsLoaded(false);
     setPage((prev) => prev + 1);
-
-    fetch(`https://randomuser.me/api/?page=${page}&results=50`)
-      .then((response) => response.json())
-      .then((dataFetch) => {
-        const newData = dataFetch.results.map((patient) => ({
-          ...patient,
-          page,
-          seed: dataFetch.info.seed,
-        }));
-
-        setData((prev) => [...prev, ...newData]);
-        setIsLoaded(true);
-      })
-      .catch(() => {
-        setError(true);
-        setTimeout(() => {
-          setError(false);
-          setIsLoaded(true);
-        }, 2000);
-      });
   };
+
+  useEffect(() => {
+    let isCancelled = false;
+
+    if (page > 1) {
+      fetch(`https://randomuser.me/api/?page=${page}&results=50`)
+        .then((response) => {
+          if (!response.ok) {
+            setError(true);
+          }
+
+          return response.json();
+        })
+        .then((dataFetch) => {
+          const newData = dataFetch.results.map((patient) => ({
+            ...patient,
+            page,
+            seed: dataFetch.info.seed,
+          }));
+
+          if (!isCancelled) {
+            setData((prev) => [...prev, ...newData]);
+          }
+
+          setIsLoaded(true);
+        });
+    }
+
+    return () => {
+      setIsLoaded(false);
+      isCancelled = true;
+    };
+  }, [page]);
 
   return (
     <Box

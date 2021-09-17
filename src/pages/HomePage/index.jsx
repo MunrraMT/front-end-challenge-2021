@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { useContext, useEffect } from 'react';
 
 import DataContext from '../../providers/DataContext';
@@ -34,7 +36,7 @@ const HomePage = () => {
         }
       })
       .catch((e) => {
-        throw new Error(e.message);
+        console.log(e.message);
       });
 
     return () => {
