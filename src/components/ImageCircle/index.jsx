@@ -7,6 +7,7 @@ const ImageCircle = ({ src, alt, width, ClassName }) => {
 
   return (
     <img
+      aria-label={alt}
       className={`${classes.image} ${ClassName}`}
       src={src}
       alt={alt}
