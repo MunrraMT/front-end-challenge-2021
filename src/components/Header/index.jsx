@@ -10,7 +10,12 @@ const Header = () => {
 
   return (
     <Box height="3rem" paddingX="2rem" paddingY="1rem" component="header">
-      <Grid container alignItems="center" justifyContent="center">
+      <Grid
+        component="section"
+        container
+        alignItems="center"
+        justifyContent="center"
+      >
         <ImageCircle src="/logo.svg" alt="Logo da Empresa" />
         <Title className={classes.title} text="Pharma Inc" />
         <ImageCircle src="/perfil.webp" alt="Foto de perfil do usuário" />
