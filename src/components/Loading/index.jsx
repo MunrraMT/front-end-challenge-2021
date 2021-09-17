@@ -7,7 +7,13 @@ const Loading = () => (
     alignItems="center"
     justifyContent="center"
   >
-    <img width="50" height="50" src="/Reload-1s-50px.svg" alt="Loading" />
+    <img
+      aria-label="Imagem de Loading"
+      width="50"
+      height="50"
+      src="/Reload-1s-50px.svg"
+      alt="Imagem de Loading"
+    />
   </Box>
 );
 
