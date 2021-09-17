@@ -8,6 +8,8 @@ const HomePage = () => {
   const { setData, setError, urlInfo } = useContext(DataContext);
 
   useEffect(() => {
+    let isCancelled = false;
+
     fetch(
       `${
         urlInfo.seed !== ''
@@ -27,8 +29,17 @@ const HomePage = () => {
           seed: dataFetch.info.seed,
         }));
 
-        setData(newData);
+        if (!isCancelled) {
+          setData((prev) => [...prev, ...newData]);
+        }
+      })
+      .catch((e) => {
+        throw new Error(e.message);
       });
+
+    return () => {
+      isCancelled = true;
+    };
   }, [urlInfo]);
 
   return (
