@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+
 import {
   FormControl,
   FormControlLabel,
@@ -6,6 +7,7 @@ import {
   Radio,
   RadioGroup,
 } from '@material-ui/core';
+
 import DataContext from '../../providers/DataContext';
 
 const GenderFilter = () => {
@@ -23,25 +25,29 @@ const GenderFilter = () => {
 
   return (
     <FormControl component="fieldset">
-      <FormLabel component="legend">Pesquisar por gênero</FormLabel>
+      <FormLabel component="h3">Pesquisar por gênero</FormLabel>
       <RadioGroup
         row
         aria-label="filtro por gênero"
         name="gender"
         value={value}
         onChange={handleChange}
+        role="radiogroup"
       >
         <FormControlLabel
+          aria-label="Todos"
           value="all"
           control={<Radio color="primary" />}
           label="Todos"
         />
         <FormControlLabel
+          aria-label="Masculino"
           value="male"
           control={<Radio color="primary" />}
           label="Masculino"
         />
         <FormControlLabel
+          aria-label="Feminino"
           value="female"
           control={<Radio color="primary" />}
           label="Feminino"
