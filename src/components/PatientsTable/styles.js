@@ -2,8 +2,8 @@ import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles(() => ({
   container: {
-    minHeight: '40vh',
-    maxHeight: '40vh',
+    minHeight: '35vh',
+    maxHeight: '35vh',
     borderRadius: '0',
     marginBottom: '0.5rem',
   },
