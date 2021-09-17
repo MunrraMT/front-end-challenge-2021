@@ -53,7 +53,7 @@ const SearchInput = () => {
       alignItems="center"
     >
       <FormControl component="fieldset" className={classes.type}>
-        <FormLabel component="legend">Tipo de pesquisa</FormLabel>
+        <FormLabel component="h3">Tipo de pesquisa</FormLabel>
         <RadioGroup
           row
           aria-label="filtro por gênero"
