@@ -8,7 +8,7 @@ import {
   InputAdornment,
   Radio,
   RadioGroup,
-  TextField,
+  TextField
 } from '@material-ui/core';
 
 import useStyles from './styles';
@@ -47,29 +47,29 @@ const SearchInput = () => {
 
   return (
     <Box
-      component="section"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
+      component='section'
+      display='flex'
+      justifyContent='center'
+      alignItems='center'
     >
-      <FormControl component="fieldset" className={classes.type}>
-        <FormLabel component="h3">Tipo de pesquisa</FormLabel>
+      <FormControl component='fieldset' className={classes.type}>
+        <FormLabel component='h3'>Tipo de pesquisa</FormLabel>
         <RadioGroup
           row
-          aria-label="filtro por gênero"
-          name="gender"
+          aria-label='filtro por gênero'
+          name='gender'
           value={typeSearch}
           onChange={handleChangeTypeInput}
         >
           <FormControlLabel
-            value="name"
-            control={<Radio color="primary" />}
-            label="Nome"
+            value='name'
+            control={<Radio color='primary' />}
+            label='Nome'
           />
           <FormControlLabel
-            value="nationality"
-            control={<Radio color="primary" />}
-            label="Nacionalidade"
+            value='nationality'
+            control={<Radio color='primary' />}
+            label='Nacionalidade'
           />
         </RadioGroup>
       </FormControl>
@@ -80,22 +80,22 @@ const SearchInput = () => {
         value={textSearch}
         onChange={handleChangeTextInput}
         className={classes.input}
-        size="small"
-        id="text-search"
-        label="Pesquisar"
-        type="search"
-        variant="outlined"
+        size='small'
+        id='text-search'
+        label='Pesquisar'
+        type='search'
+        variant='outlined'
         InputProps={{
           endAdornment: (
-            <InputAdornment position="end">
+            <InputAdornment position='end'>
               <img
-                src="/search.svg"
-                alt="Icone de busca"
-                width="30"
-                height="30"
+                src='./search.svg'
+                alt='Icone de busca'
+                width='30'
+                height='30'
               />
             </InputAdornment>
-          ),
+          )
         }}
       />
     </Box>

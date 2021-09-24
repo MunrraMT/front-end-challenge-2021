@@ -9,16 +9,16 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <Box height="3rem" paddingX="2rem" paddingY="1rem" component="header">
+    <Box height='3rem' paddingX='2rem' paddingY='1rem' component='header'>
       <Grid
-        component="section"
+        component='section'
         container
-        alignItems="center"
-        justifyContent="center"
+        alignItems='center'
+        justifyContent='center'
       >
-        <ImageCircle src="/logo.svg" alt="Logo da Empresa" />
-        <Title className={classes.title} text="Pharma Inc" />
-        <ImageCircle src="/perfil.webp" alt="Foto de perfil do usuário" />
+        <ImageCircle src='./logo.svg' alt='Logo da Empresa' />
+        <Title className={classes.title} text='Pharma Inc' />
+        <ImageCircle src='./perfil.webp' alt='Foto de perfil do usuário' />
       </Grid>
     </Box>
   );
