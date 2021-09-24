@@ -1,0 +1,10 @@
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5">
+
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_2" clip-rule="evenodd" d="m9.16667,8.03846a3,3 0 1 0 0,-6a3,3 0 0 0 0,6zm-7,9a7,7 0 1 1 14,0l-14,0z" fill-rule="evenodd"/>
+  <ellipse ry="3.65385" rx="3.65385" id="svg_5" cy="13.33333" cx="13.26923" fill="#ffffff"/>
+  <ellipse ry="3.65385" rx="3.65385" id="svg_7" cy="16.15385" cx="16.41025" fill="#ffffff"/>
+  <path id="svg_1" clip-rule="evenodd" d="m13.51852,11.13865a1.99526,1.99526 0 1 0 0,3.99051a1.99526,1.99526 0 0 0 0,-3.99051zm-2.99288,1.99526a2.99288,2.99288 0 1 1 5.43209,1.73388l2.40279,2.40279a0.49881,0.49881 0 0 1 -0.70532,0.70532l-2.40229,-2.40229a2.99288,2.99288 0 0 1 -4.72726,-2.4397z" fill-rule="evenodd"/>
+ </g>
+</svg>

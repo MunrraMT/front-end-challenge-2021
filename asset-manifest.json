@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/front-end-challenge-2021/static/css/main.af038990.chunk.css",
+    "main.js": "/front-end-challenge-2021/static/js/main.a0b24e4b.chunk.js",
+    "main.js.map": "/front-end-challenge-2021/static/js/main.a0b24e4b.chunk.js.map",
+    "runtime-main.js": "/front-end-challenge-2021/static/js/runtime-main.9505e172.js",
+    "runtime-main.js.map": "/front-end-challenge-2021/static/js/runtime-main.9505e172.js.map",
+    "static/js/2.8140e1b9.chunk.js": "/front-end-challenge-2021/static/js/2.8140e1b9.chunk.js",
+    "static/js/2.8140e1b9.chunk.js.map": "/front-end-challenge-2021/static/js/2.8140e1b9.chunk.js.map",
+    "static/js/3.41f2ac0f.chunk.js": "/front-end-challenge-2021/static/js/3.41f2ac0f.chunk.js",
+    "static/js/3.41f2ac0f.chunk.js.map": "/front-end-challenge-2021/static/js/3.41f2ac0f.chunk.js.map",
+    "index.html": "/front-end-challenge-2021/index.html",
+    "static/css/main.af038990.chunk.css.map": "/front-end-challenge-2021/static/css/main.af038990.chunk.css.map",
+    "static/js/2.8140e1b9.chunk.js.LICENSE.txt": "/front-end-challenge-2021/static/js/2.8140e1b9.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/front-end-challenge-2021/static/media/LeckerliOne-Regular.9c9cbb8e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9505e172.js",
+    "static/js/2.8140e1b9.chunk.js",
+    "static/css/main.af038990.chunk.css",
+    "static/js/main.a0b24e4b.chunk.js"
+  ]
+}
